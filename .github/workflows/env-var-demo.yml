@@ -1,0 +1,18 @@
+name: env-var-demo
+on: workflow_dispatch
+
+jobs:
+  env-demo:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        github-env: [production, nonprod]
+    environment: ${{ matrix.github-env }}
+    steps:
+      - name: Echo out environment
+        run: echo "This is running using the [${{ matrix.github-env }}] environment"
+      - name: Echo out variables
+        run: |
+          echo "The following vars are present here:"
+          echo "  - SNYK_TOKEN_VAULT_KEY = '${{ vars.SNYK_TOKEN_VAULT_KEY }}'"
+          echo "  - BINARY_VERSION_LINUX = '${{ vars.BINARY_VERSION_LINUX }}'"
