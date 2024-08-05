@@ -53,7 +53,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - name: upload artifacts
-        uses: actions/upload-pages-artifact@v3 # So you can't leave this blank
+        uses: actions/upload-pages-artifact@v1 # Gotta use v1 for this example
         with:
           path: "./out"
       - name: deploy
