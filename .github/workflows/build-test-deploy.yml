@@ -53,7 +53,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - name: upload artifacts
-        uses: actions/upload-pages-artifact@latest
+        uses: actions/upload-pages-artifact # not specifying a version should use the latest
         with:
           path: "./out"
       - name: deploy
